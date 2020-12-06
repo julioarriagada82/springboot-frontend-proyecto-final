@@ -1,0 +1,38 @@
+<form class="example-container" [formGroup]="form" (ngSubmit)="operar()" #frmExamen="ngForm">
+
+    <div [hidden]="true">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="ID" required formControlName="id">
+        </mat-form-field>
+    </div>
+
+    <mat-form-field>
+        <mat-select placeholder="Condominio" [(value)]="condominioSeleccionado" formControlName="condominio">
+            <mat-option *ngFor="let c of condominios" [value]="c">
+                {{ c.nombreCondominio }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Nombre" required formControlName="nombre">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Dirección" required formControlName="direccion">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Telefono" required formControlName="telefono">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="frmExamen.invalid">
+        <mat-icon>done</mat-icon>
+        <span>Aceptar</span>
+    </button>
+    <button mat-raised-button color="accent" routerLink="/casa" type="button">
+        <mat-icon>close</mat-icon>
+        <span>Cancelar</span>
+    </button>
+</form>
+

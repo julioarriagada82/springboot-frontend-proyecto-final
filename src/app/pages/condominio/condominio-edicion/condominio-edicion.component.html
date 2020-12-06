@@ -1,0 +1,45 @@
+<form class="example-container" [formGroup]="form" (ngSubmit)="operar()" #frmExamen="ngForm">
+
+    <div [hidden]="true">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="ID" required formControlName="id">
+        </mat-form-field>
+    </div>
+
+    <mat-form-field>
+        <mat-select placeholder="Tipo Condominio" [(value)]="tipoCondominioSeleccionado" formControlName="tipoCondominio">
+            <mat-option *ngFor="let tipo of tipoCondominios" [value]="tipo">
+                {{ tipo.nombre }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Nombre" required formControlName="nombre">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Descripcion" required formControlName="descripcion">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Dirección" required formControlName="direccion">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Url" required formControlName="url">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Telefono" required formControlName="telefono">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="frmExamen.invalid">
+        <mat-icon>done</mat-icon>
+        <span>Aceptar</span>
+    </button>
+    <button mat-raised-button color="accent" routerLink="/examen" type="button">
+        <mat-icon>close</mat-icon>
+        <span>Cancelar</span>
+    </button>
+</form>

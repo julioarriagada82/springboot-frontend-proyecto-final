@@ -1,0 +1,46 @@
+<form class="example-container" [formGroup]="form" (ngSubmit)="operar()" #frmExamen="ngForm">
+
+    <div [hidden]="true">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="ID" required formControlName="id">
+        </mat-form-field>
+    </div>
+
+    <mat-form-field>
+        <mat-select placeholder="Casas" [(value)]="casaSeleccionado" formControlName="casa">
+            <mat-option *ngFor="let c of casas" [value]="c">
+                {{ c.nombreCasa }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Rut" required formControlName="rut">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Nombre" required formControlName="nombre">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Paterno" required formControlName="paterno">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Materno" required formControlName="materno">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Motivo" required formControlName="motivo">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="frmExamen.invalid">
+        <mat-icon>done</mat-icon>
+        <span>Aceptar</span>
+    </button>
+    <button mat-raised-button color="accent" routerLink="/examen" type="button">
+        <mat-icon>close</mat-icon>
+        <span>Cancelar</span>
+    </button>
+</form>
+
